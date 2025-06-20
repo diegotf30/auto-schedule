@@ -1,6 +1,6 @@
 # Automatic US Visa appointment scheduling
 
-This script uses Selenium to automatically schedule a US visa appointment
+This script uses Python's Selenium library to automatically schedule appointments for a specific site that doesnt like to give proper appointments
 
 ## Requerimientos
 
@@ -19,6 +19,6 @@ This script uses Selenium to automatically schedule a US visa appointment
 
     * `notification_email`: Email that is being notified of scheduled appointment (generally the same as `sender_email`)
 
-    * `visa_email` & `visa_email_password`: Credentails for the [us visa site](https://ais.usvisa-info.com/es-mx/niv/users/sign_in)
+    * `visa_email` & `visa_email_password`: Credentails from `[redacted]`
 
 
