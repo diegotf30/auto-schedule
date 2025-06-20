@@ -20,7 +20,7 @@ def send_email(to: str, content: str):
 	password = CONFIG_JSON['sender_email_password']
 
 	msg = MIMEMultipart("alternative")
-	msg['Subject'] = 'Citas para la visa'
+	msg['Subject'] = 'Citas disponibles!'
 	msg['X-Priority'] = '1'
 	msg['From'] = sender_email
 	msg['To'] = to
@@ -74,8 +74,8 @@ def book_appointment(ff: webdriver.Firefox, appointment_type: str, desired_place
 def look_for_appointments(ff: webdriver.Firefox, in_place: str):
 	ff.get(URL)
 	# SIGN IN
-	ff.find_element_by_id('user_email').send_keys(CONFIG_JSON['visa_email'])
-	ff.find_element_by_id('user_password').send_keys(CONFIG_JSON['visa_email_password'])
+	ff.find_element_by_id('user_email').send_keys(CONFIG_JSON['site_email'])
+	ff.find_element_by_id('user_password').send_keys(CONFIG_JSON['site_email_password'])
 	ff.find_elements_by_class_name('icheckbox')[0].click()
 	ff.find_element_by_name('commit').click()
 	time.sleep(3) # Wait for load
@@ -107,7 +107,7 @@ def look_for_appointments(ff: webdriver.Firefox, in_place: str):
 		print(f' | was after scheduled appt ({scheduled_consulate_appointment})')
 
 if __name__ == '__main__':
-	URL = 'https://ais.usvisa-info.com/es-mx/niv/users/sign_in'
+	URL = CONFIG_JSON['SITE_URL']
 	with open('config.json', 'r') as f:
 		CONFIG_JSON = json.load(f)
 
